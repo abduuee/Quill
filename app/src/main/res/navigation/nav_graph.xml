@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.example.quill.fragments.AddNoteFragment"
+        tools:layout="@layout/fragment_add_note" />
+        <action
+            android:id="@+id/action_homeFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.quill.fragments.HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment">
+            <argument
+                android:name="note"
+                app:argType="com.example.quill.model.Note"
+                app:nullable="false" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.example.quill.fragments.EditNoteFragment"
+        tools:layout="@layout/fragment_edit_note">
+        <argument
+            android:name="note"
+            app:argType="com.example.quill.model.Note"
+            app:nullable="false" />
+    </fragment>
+
+</navigation>
